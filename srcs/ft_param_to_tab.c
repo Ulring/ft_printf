@@ -82,6 +82,22 @@ struct s_flags *ft_param_to_tab(char** str)
             struct_flag[i].space = 1;
         if(ft_is_flag('0',str[i]))
             struct_flag[i].zero = 1;
+        if(ft_is_flag('c',str[i]))
+            struct_flag[i].format = 'c';
+        if(ft_is_flag('s',str[i]))
+            struct_flag[i].format = 's';
+        if(ft_is_flag('p',str[i]))
+            struct_flag[i].format = 'p';
+        if(ft_is_flag('d',str[i]))
+            struct_flag[i].format = 'd';
+        if(ft_is_flag('i',str[i]))
+            struct_flag[i].format = 'i';
+        if(ft_is_flag('u',str[i]))
+            struct_flag[i].format = 'u';
+        if(ft_is_flag('x',str[i]))
+            struct_flag[i].format = 'x';
+        if(ft_is_flag('X',str[i]))
+            struct_flag[i].format = 'X';
         struct_flag[i].number = detect_nbr(str[i]);
         i++;
     }
@@ -90,5 +106,6 @@ struct s_flags *ft_param_to_tab(char** str)
     struct_flag[i].space = -1;
     struct_flag[i].zero = -1;
     struct_flag[i].number = -1;
+    struct_flag[i].format = 0;
     return (struct_flag);
 }

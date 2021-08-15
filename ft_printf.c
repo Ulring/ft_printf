@@ -8,14 +8,16 @@ int ft_printf2(char *str, ...)
 {
     int i;
     int j;
-    int len;
+    int len_number;
+    int len_width;
     struct s_flags *to_be_cut;
     va_list args;
     va_start(args, str);
 
     i = 0;
     j = 0;
-    len = 0;
+    len_number = 0;
+    len_width = 0;
     to_be_cut = ft_param_to_tab(ft_split(str));
     while (*str != '\0')
     {
@@ -28,21 +30,56 @@ int ft_printf2(char *str, ...)
         if(*str == '%' && *(str+1) != '%')
         {
             i = va_arg(args, int);
-            if(to_be_cut[j].plus == 1)
-                str++;
             if(to_be_cut[j].minus == 1)
                 str++;
             if(to_be_cut[j].space == 1)
                 str++;
             if(to_be_cut[j].zero == 1)
                 str++; 
-            len = ft_strlen(ft_itoa(to_be_cut[j].number));
-            while(len >= 0)
+            if(to_be_cut[j].format == 'c' || to_be_cut[j].format == 's'
+                    || to_be_cut[j].format == 'p' || to_be_cut[j].format == 'd'
+                    ||to_be_cut[j].format == 'i' || to_be_cut[j].format == 'u'
+                    ||to_be_cut[j].format == 'x' || to_be_cut[j].format == 'X')
+                str++;
+            len_number = ft_strlen(ft_itoa(to_be_cut[j].number));
+            while(len_number >= 0)
             {
                 str++;
-                len--;
+                len_number--;
             }
-            ft_putnbr(i);
+            len_width = ft_strlen(ft_itoa(i)) - len_number;
+            if(to_be_cut[j].plus == 1)
+                len_width--;    
+            if(to_be_cut[j].minus == 1)
+            {
+                if(to_be_cut[j].plus == 1)
+                {
+                    if(i >= 0)
+                        ft_putchar('+');
+                    str++;
+                }
+                ft_putnbr(i);
+                while(len_width > 0)
+                {
+                    ft_putchar(' ');
+                    len_width--;
+                }
+            }
+            else if(to_be_cut[j].minus != 1)
+            {
+                while(len_width > 0)
+                {
+                    ft_putchar(' ');
+                    len_width--;
+                }
+                if(to_be_cut[j].plus == 1)
+                {
+                    if(i >= 0)
+                        ft_putchar('+');
+                    str++;
+                }
+                ft_putnbr(i);
+            }
             j++;
             i++;
         }     
@@ -210,11 +247,11 @@ int main(void)
         printf("space: %d\n",to_be_cut[i].space);
         printf("zero:  %d\n",to_be_cut[i].zero);
         printf("number:%d\n",to_be_cut[i].number);
+        printf("format:%c\n",to_be_cut[i].format);
         i++;
     }
-    //NOTE(Anass): Need to add type of format in struct
-    ft_putstr("It should print: ");
-    ft_putstr("abcd21\n");
-    ft_putstr("It is printing: ");
-    ft_printf2("abcd%+-0123d\n",age);
+    ft_putstr("It should print:\n");
+    printf("%+5d\n",age);
+    ft_putstr("It is printing:\n");
+    ft_printf2("%+5d\n",age);
 }
