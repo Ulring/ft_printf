@@ -4,26 +4,57 @@
 #include <stdlib.h>
 #include "includes/ft.h"
 
-/*struct s_flags *ft_param_to_tab(char** str)
+int ft_printf2(char *str, ...)
 {
-    int				i;
-    t_flags		*struct_flag;
+    int i;
+    int j;
+    int len;
+    struct s_flags *to_be_cut;
+    va_list args;
+    va_start(args, str);
 
     i = 0;
-    if ((struct_flag = (t_flags *)malloc(sizeof(t_flags) * (sizeof(int) * 5 + 1))) == ((void *)0))
-        return ((void *)0);
-    while (i < ac)
+    j = 0;
+    len = 0;
+    to_be_cut = ft_param_to_tab(ft_split(str));
+    while (*str != '\0')
     {
-        struct_flag[i].plus = 1;
-        struct_flag[i].minus = 1;
-        struct_flag[i].zero = 1;
-        struct_flag[i].space = 1;
-        struct_flag[i].number = 1;
-        i++;
+        if(*str == '%' && *(str+1) == '%')
+        {
+            ft_putchar(*(str+1));
+            str++;
+            str++;
+        }
+        if(*str == '%' && *(str+1) != '%')
+        {
+            i = va_arg(args, int);
+            if(to_be_cut[j].plus == 1)
+                str++;
+            if(to_be_cut[j].minus == 1)
+                str++;
+            if(to_be_cut[j].space == 1)
+                str++;
+            if(to_be_cut[j].zero == 1)
+                str++; 
+            len = ft_strlen(ft_itoa(to_be_cut[j].number));
+            while(len >= 0)
+            {
+                str++;
+                len--;
+            }
+            ft_putnbr(i);
+            j++;
+            i++;
+        }     
+        else
+        {
+            ft_putchar(*str);
+            str++;
+        }
     }
-    struct_flag[i].plus = 0;
-    return (struct_flag);
-}*/
+    va_end(args);
+    return (1);
+}
 
 int ft_printf(const char *str, ...)
 {
@@ -124,14 +155,14 @@ int ft_printf(const char *str, ...)
 
 int main(void)
 {
-
-    int age,i_a,i_b,i_c;
+    int i,age,i_a,i_b,i_c;
     unsigned int unsigned_a;
     int hex_a;
     char letter;
     char *word;
     void *ptr;
 
+    i = 0;
     age = 21;
     i_a = 12; 
     i_b = 012;
@@ -165,9 +196,25 @@ int main(void)
     ft_printf("\a^\b^\f^\r^\t^\v^\n");
     printf(   "\a^\b^\f^\r^\t^\v^\n");
 
-    //ft_putchar('\n');
-    //ft_putstr("==>Testing the width option:\n");
-    //printf("%5.3d\n", 42);
-    //char **test = ft_split("abcd%1234d%5678x\n");
-    //printf("%s,%s",test[0],test[1]);
+    ft_putchar('\n');
+    ft_putstr("==>Testing the width option:\n");
+    char **test = ft_split("abcd%+-0123d%-+02d\n");
+    printf("test[0]:\%s,test[1]:%s\n",test[0],test[1]);
+    struct s_flags *to_be_cut;
+    to_be_cut = ft_param_to_tab(test);
+    while(to_be_cut[i].plus != -1)
+    {
+        printf("===========\n");
+        printf("plus:  %d\n",to_be_cut[i].plus);
+        printf("minus: %d\n",to_be_cut[i].minus);
+        printf("space: %d\n",to_be_cut[i].space);
+        printf("zero:  %d\n",to_be_cut[i].zero);
+        printf("number:%d\n",to_be_cut[i].number);
+        i++;
+    }
+    //NOTE(Anass): Need to add type of format in struct
+    ft_putstr("It should print: ");
+    ft_putstr("abcd21\n");
+    ft_putstr("It is printing: ");
+    ft_printf2("abcd%+-0123d\n",age);
 }

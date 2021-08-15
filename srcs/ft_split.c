@@ -1,3 +1,4 @@
+#include "../includes/ft.h"
 #include <stdlib.h>
 
 int	count(char *str)
@@ -63,7 +64,7 @@ char	**ft_split(char *str)
         {
             i++;
         }
-        array_to_return[j] = (char *)malloc(sizeof(char) * word_length(str, i) + 1);
+        array_to_return[j] = (char *)malloc(sizeof(char) * word_length(str, i));
         while(str[i] != 'd' && str[i] != 'c' && str[i] != 's'
             && str[i] != 'p' && str[i] != 'i' && str[i] != 'u' && str[i] != 'x'
                 && str[i] != 'X' && str[i] != '\0'){
