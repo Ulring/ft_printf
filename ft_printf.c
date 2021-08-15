@@ -69,7 +69,10 @@ int ft_printf2(char *str, ...)
             {
                 while(len_width > 0)
                 {
-                    ft_putchar(' ');
+                    if(to_be_cut[j].zero == 1)
+                        ft_putchar('0');
+                    else
+                        ft_putchar(' ');
                     len_width--;
                 }
                 if(to_be_cut[j].plus == 1)
@@ -251,7 +254,7 @@ int main(void)
         i++;
     }
     ft_putstr("It should print:\n");
-    printf("%+5d\n",age);
+    printf("%05d\n",age);
     ft_putstr("It is printing:\n");
-    ft_printf2("%+5d\n",age);
+    ft_printf2("%05d\n",age);
 }
