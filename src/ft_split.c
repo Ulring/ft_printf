@@ -1,7 +1,7 @@
-#include "../includes/ft.h"
+#include "../include/ft.h"
 #include <stdlib.h>
 
-int	count(char *str)
+int	word_count(char *str)
 {
     int	i;
     int	flag;
@@ -55,7 +55,7 @@ char	**ft_split(char *str)
 
     i = 0;
     j = 0;
-    counted_words = count(str);
+    counted_words = word_count(str);
     array_to_return = (char **)malloc(sizeof (char *) * counted_words + 1);
     while (str[i] != '\0' && j < counted_words)
     {

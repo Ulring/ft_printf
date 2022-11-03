@@ -2,7 +2,7 @@
 #include <unistd.h>
 #include <stdarg.h>
 #include <stdlib.h>
-#include "includes/ft.h"
+#include "include/ft.h"
 
 int ft_printf2(char *str, ...)
 {
