@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME        = ft_printf
+NAME        = ft_printf.a
 
 SRC_DIR     = src
 
@@ -20,7 +20,9 @@ INC_DIR     = include
 
 BIN_DIR 	= bin
 
-DEBUG_CFLAGS=
+TEST_DIR	= test
+
+DEBUG_CFLAGS= -g3
 
 RM 			= rm -rf
 
@@ -31,6 +33,7 @@ CFLAGS		= -Wall -Wextra -Werror -I$(INC_DIR)
 HEADERS     = $(addprefix $(INC_DIR)/,$(INC_FILES))
 SRCS        = $(addprefix $(SRC_DIR)/,$(SRC_FILES))
 OBJS        = $(addprefix $(OBJ_DIR)/,$(OBJ_NAME))
+TESTS 		= $(addprefix $(TEST_DIR)/,$(TEST_FILES))
 TARGET 		= $(addprefix $(BIN_DIR)/,$(NAME))
 
 OBJ_NAME	= $(SRC_FILES:.c=.o)
@@ -52,17 +55,24 @@ SRC_FILES   = 	ft_atoi.c		\
 				ft_strlen.c		\
 				ft_printf.c
 
-DIRS : 
+TEST_FILES	=	tests.c
+
+DIRS: 
 	if test ! -d $(OBJ_DIR); then mkdir $(OBJ_DIR); fi
 	if test ! -d $(BIN_DIR); then mkdir $(BIN_DIR); fi
 
-all : DIRS ${NAME}
+all	: DIRS ${NAME}
 
-$(OBJ_DIR)/%.o : $(SRC_DIR)/%.c $(HEADER)	
+$(TEST_DIR)/bin/%: $(TEST_FILES)
+	$(CC) $< $(TESTS) -o $@ -lcriterion
+						
+test			:	$(TARGET)/$(NAME)
+
+$(OBJ_DIR)/%.o	: $(SRC_DIR)/%.c $(HEADER)	
 	$(CC) $(CFLAGS) $(DEBUG_CFLAGS) -c $< -o $@
 
-$(NAME) : ${OBJS}
-	gcc ${OBJS}
+$(NAME)			: ${OBJS}
+	ar rcs ${TARGET} ${OBJS}
 
 clean           :
 				${RM} ${OBJS}

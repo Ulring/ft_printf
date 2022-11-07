@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include "include/ft.h"
 
-int ft_printf2(char *str, ...)
+int test_ft_printf(char *str, ...)
 {
     int i;
     int j;
@@ -193,6 +193,7 @@ int ft_printf(const char *str, ...)
     return (1);
 }
 
+/*
 int main(void)
 {
     int i,age,i_a,i_b,i_c;
@@ -253,10 +254,11 @@ int main(void)
         printf("format:%c\n",to_be_cut[i].format);
         i++;
     }
-    //PLAN(Anass) : Fix All flags bugs,combine ft_printf2 with ft_printf,
+    //PLAN(Anass) : Fix All flags bugs,combine test_ft_printf with ft_printf,
     //Treat floating numbers, Add bonus part
     ft_putstr("It should print:\n");
     printf("%05d\n",age);
     ft_putstr("It is printing:\n");
-    ft_printf2("%05d\n",age);
+    test_ft_printf("%05d\n",age);
 }
+*/
