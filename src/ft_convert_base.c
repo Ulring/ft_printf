@@ -1,4 +1,4 @@
-#include <stdlib.h>
+#include "../include/ft_printf.h"
 
 long		display(long nb, char *str, char *result, int index) 
 {

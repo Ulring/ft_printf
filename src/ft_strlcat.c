@@ -6,11 +6,11 @@
 /*   By: ansoulim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 23:38:55 by ansoulim          #+#    #+#             */
-/*   Updated: 2022/10/12 09:36:21 by ansoulim         ###   ########.fr       */
+/*   Updated: 2022/11/09 03:24:58 by ansoulim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft.h"
+#include "../include/ft_printf.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {

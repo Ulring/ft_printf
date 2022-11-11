@@ -1,8 +1,4 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <stdarg.h>
-#include <stdlib.h>
-#include "../include/ft.h"
+#include "../include/ft_printf.h"
 
 int test_ft_printf(char *str, ...)
 {

@@ -6,15 +6,18 @@
 /*   By: ansoulim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 19:12:00 by ansoulim          #+#    #+#             */
-/*   Updated: 2022/11/06 01:11:13 by ansoulim         ###   ########.fr       */
+/*   Updated: 2022/11/10 00:35:52 by ansoulim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_H
-# define FT_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 # include "ft_flags.h"
 #include <stdlib.h>
+#include <unistd.h>
+#include <stdarg.h>
 
+int 	ft_printf(const char *str, ...);
 void    ft_putstr(char *str);
 void    ft_putchar(char c);
 void    ft_putnbr(int n);

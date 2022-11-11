@@ -1,5 +1,4 @@
-#include "../include/ft.h"
-#include <stdlib.h>
+#include "../include/ft_printf.h"
 
 int detect_nbr(char *str)
 {

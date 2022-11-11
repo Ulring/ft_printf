@@ -6,11 +6,11 @@
 /*   By: ansoulim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 23:39:58 by ansoulim          #+#    #+#             */
-/*   Updated: 2022/10/08 05:56:37 by ansoulim         ###   ########.fr       */
+/*   Updated: 2022/11/09 03:22:30 by ansoulim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft.h"
+#include "../include/ft_printf.h"
 
 int	count(int n)
 {

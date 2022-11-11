@@ -6,11 +6,11 @@
 /*   By: ansoulim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 23:35:04 by ansoulim          #+#    #+#             */
-/*   Updated: 2022/10/12 08:47:54 by ansoulim         ###   ########.fr       */
+/*   Updated: 2022/11/09 03:18:30 by ansoulim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft.h"
+#include "../include/ft_printf.h"
 
 int	ft_atoi(const char *str)
 {

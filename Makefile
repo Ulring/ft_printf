@@ -6,11 +6,11 @@
 #    By: ansoulim <ansoulim@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 06:27:46 by ansoulim          #+#    #+#              #
-#    Updated: 2022/10/18 18:58:17 by ansoulim         ###   ########.fr        #
+#    Updated: 2022/11/10 00:57:39 by ansoulim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME        = ft_printf.a
+NAME        = libftprintf.a
 
 SRC_DIR     = src
 
@@ -22,7 +22,7 @@ BIN_DIR 	= bin
 
 TEST_DIR	= test
 
-DEBUG_CFLAGS= -g3
+DEBUG_CFLAGS= -O3
 
 RM 			= rm -rf
 
@@ -63,16 +63,12 @@ DIRS:
 
 all	: DIRS ${NAME}
 
-$(TEST_DIR)/bin/%: $(TEST_FILES)
-	$(CC) $< $(TESTS) -o $@ -lcriterion
-						
-test			:	$(TARGET)/$(NAME)
-
 $(OBJ_DIR)/%.o	: $(SRC_DIR)/%.c $(HEADER)	
 	$(CC) $(CFLAGS) $(DEBUG_CFLAGS) -c $< -o $@
 
 $(NAME)			: ${OBJS}
 	ar rcs ${TARGET} ${OBJS}
+	cp bin/libftprintf.a .
 
 clean           :
 				${RM} ${OBJS}
