@@ -6,9 +6,11 @@
 /*   By: ansoulim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 19:12:00 by ansoulim          #+#    #+#             */
-/*   Updated: 2022/11/10 00:35:52 by ansoulim         ###   ########.fr       */
+/*   Updated: 2022/11/15 01:41:29 by ansoulim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+//Note (Anass) : delete test_printf before final push
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
@@ -18,8 +20,10 @@
 #include <stdarg.h>
 
 int 	ft_printf(const char *str, ...);
+int		test_ft_printf(char *str, ...);
 void    ft_putstr(char *str);
 void    ft_putchar(char c);
+char	*ft_strdup(const char *s1);
 void    ft_putnbr(int n);
 void    ft_unsigned_putnbr(unsigned int n);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);

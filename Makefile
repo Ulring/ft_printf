@@ -6,7 +6,7 @@
 #    By: ansoulim <ansoulim@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 06:27:46 by ansoulim          #+#    #+#              #
-#    Updated: 2022/11/10 00:57:39 by ansoulim         ###   ########.fr        #
+#    Updated: 2022/11/15 02:57:07 by ansoulim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ BIN_DIR 	= bin
 
 TEST_DIR	= test
 
-DEBUG_CFLAGS= -O3
+#DEBUG_CFLAGS= -O3
+DEBUG_CFLAGS=
 
 RM 			= rm -rf
 
@@ -40,19 +41,20 @@ OBJ_NAME	= $(SRC_FILES:.c=.o)
 
 INC_FILES	= ft.h ft_flags.h
 
-SRC_FILES   = 	ft_atoi.c		\
-				ft_itoa.c		\
-				ft_putchar.c	\
-				ft_putstr.c		\
-				ft_strjoin.c	\
-				ft_strlcpy.c	\
+SRC_FILES   = 	ft_atoi.c			\
+				ft_itoa.c			\
+				ft_putchar.c		\
+				ft_putstr.c			\
+				ft_strdup.c			\
+				ft_strjoin.c		\
+				ft_strlcpy.c		\
 				ft_unsigned_putnbr.c\
-				ft_convert_base.c\
-				ft_param_to_tab.c\
-				ft_putnbr.c		\
-				ft_split.c		\
-				ft_strlcat.c	\
-				ft_strlen.c		\
+				ft_convert_base.c	\
+				ft_param_to_tab.c	\
+				ft_putnbr.c			\
+				ft_split.c			\
+				ft_strlcat.c		\
+				ft_strlen.c			\
 				ft_printf.c
 
 TEST_FILES	=	tests.c
@@ -67,15 +69,19 @@ $(OBJ_DIR)/%.o	: $(SRC_DIR)/%.c $(HEADER)
 	$(CC) $(CFLAGS) $(DEBUG_CFLAGS) -c $< -o $@
 
 $(NAME)			: ${OBJS}
-	ar rcs ${TARGET} ${OBJS}
+	ar rcs $(TARGET) $(OBJS)
 	cp bin/libftprintf.a .
 
 clean           :
-				${RM} ${OBJS}
+				$(RM) $(OBJS)
 
 fclean          : clean
-				${RM} ${TARGET}
+				$(RM) $(TARGET)
 
 re              : fclean all
 
 .PHONY          : all, clean, fclean, re
+
+test			: re
+				gcc -L. -lftprintf main.c -o test -Wall -Wextra -Werror
+#				./test

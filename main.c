@@ -1,3 +1,6 @@
+#include "include/ft_printf.h"
+#include <stdio.h>
+
 int main(void)
 {
     int i,age,i_a,i_b,i_c;
