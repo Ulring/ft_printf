@@ -23,6 +23,7 @@ int main(void)
     word = "old";
     ptr = &age;
 
+	/*
 	ft_putstr("==>Printing a string:\n");
     printf(	  "printf:		test.\n");
     ft_printf("ft_prinft:	test.\n");
@@ -54,8 +55,74 @@ int main(void)
     ft_putstr("\n==>Testing special characters:\n");
     printf(   "printf:		\a^\b^\f^\r^\t^\v^\n");
     ft_printf("ft_printf:	\a^\b^\f^\r^\t^\v^\n");
-
-    /*
+	*/
+    
+	ft_putstr("\n==>%%c francinette:\n");
+    printf(   "%c<=printf", '0');
+	fflush(stdout);
+    ft_putstr("\n");
+    ft_printf("%c<=ft_printf", '0');
+    fflush(stdout);
+	ft_putstr("\n");
+    ft_putstr("\n");
+	printf(   "printf:%c",'0');
+    fflush(stdout);
+    ft_putstr("\n");
+    ft_printf("ft_printf:%c", '0');
+    fflush(stdout);
+    ft_putstr("\n");
+    ft_putstr("\n");
+	printf(   "%c<=printf", '0' - 256);
+    fflush(stdout);
+    ft_putstr("\n");
+    ft_printf("%c<=ft_printf", '0' -  256);
+    fflush(stdout);
+    ft_putstr("\n");
+    ft_putstr("\n");
+	printf(   "printf:		%c", '0' + 256);
+    fflush(stdout);
+    ft_putstr("\n");
+    ft_printf("ft_printf:	%c", '0' + 256);
+    fflush(stdout);
+    ft_putstr("\n");
+    ft_putstr("\n");
+	printf(   "printf:		 %c %c %c ", '0', 0, '1');
+    fflush(stdout);
+    ft_putstr("\n");
+    ft_printf("ft_printf:	 %c %c %c ", '0', 0, '1');
+    fflush(stdout);
+    ft_putstr("\n");
+    ft_putstr("\n");
+    printf(   "printf:		 %c %c %c ", ' ', ' ', ' ');
+    fflush(stdout);
+    ft_putstr("\n");
+    ft_printf("ft_printf:	 %c %c %c ", ' ', ' ', ' ');
+    fflush(stdout);
+    ft_putstr("\n");
+    ft_putstr("\n");
+    printf(   "printf:		 %c %c %c ", '1', '2', '3');
+    fflush(stdout);
+    ft_putstr("\n");
+    ft_printf("ft_printf:	 %c %c %c ", '1', '2', '3');
+    fflush(stdout);
+    ft_putstr("\n");
+    ft_putstr("\n");
+    printf(   "printf:		 %c %c %c ", '2', '1', '0');
+    fflush(stdout);
+    ft_putstr("\n");
+    ft_printf("ft_printf:	 %c %c %c ", '2', '1', '0');
+    fflush(stdout);
+    ft_putstr("\n");
+    ft_putstr("\n");
+    printf(   "printf:		 %c %c %c ", '0', '1', '2');
+    fflush(stdout);
+    ft_putstr("\n");
+    ft_printf("ft_printf:	 %c %c %c ", '0', '1', '2');
+    fflush(stdout);
+    ft_putstr("\n");
+    ft_putstr("\n");
+	
+	/*
 	ft_putchar('\n');
     ft_putstr("==>Testing the width option:\n");
     char **test = ft_split("abcd%+-0123d%-+02d\n");
@@ -80,5 +147,6 @@ int main(void)
     ft_putstr("It is printing:\n");
     test_ft_printf("%05d\n",age);
 	*/
+	setbuf(stdout, NULL);
 }
 

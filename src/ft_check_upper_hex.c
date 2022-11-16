@@ -6,7 +6,7 @@
 /*   By: ansoulim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 08:03:45 by ansoulim          #+#    #+#             */
-/*   Updated: 2022/11/16 08:05:09 by ansoulim         ###   ########.fr       */
+/*   Updated: 2022/11/16 22:28:03 by ansoulim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 void	ft_check_upper_hex(char **str, va_list args)
 {
-	if (*(*str+1) == 'X')
+	if (*(*str + 1) == 'X')
 	{
 		long num;
 		num = va_arg(args, long);
-		ft_putstr(ft_convert_base(ft_itoa(num), "0123456789", "0123456789ABCDEF"));
+		ft_putstr(ft_convert_base(ft_itoa(num), "0123456789", 
+			"0123456789ABCDEF"));
 		(*str) += 2;
 	}
 }

@@ -6,13 +6,14 @@
 /*   By: ansoulim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 04:57:11 by ansoulim          #+#    #+#             */
-/*   Updated: 2022/11/16 12:00:33 by ansoulim         ###   ########.fr       */
+/*   Updated: 2022/11/16 22:30:09 by ansoulim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "../include/ft_printf.h"
 
+/*
 int	test_ft_printf(char *str, ...)
 {
 	int		i;
@@ -104,6 +105,7 @@ int	test_ft_printf(char *str, ...)
 	va_end(args);
 	return (1);
 }
+*/
 
 int	ft_printf(const char *str, ...)
 {
@@ -136,6 +138,7 @@ int	ft_printf(const char *str, ...)
 			ft_check_upper_hex(&string, args);
 		}
 	}
+	free(string);
 	va_end(args);
 	return (1);
 }

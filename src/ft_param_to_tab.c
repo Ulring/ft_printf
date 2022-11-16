@@ -6,7 +6,7 @@
 /*   By: ansoulim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 04:33:03 by ansoulim          #+#    #+#             */
-/*   Updated: 2022/11/16 04:42:25 by ansoulim         ###   ########.fr       */
+/*   Updated: 2022/11/16 22:25:51 by ansoulim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,6 @@ struct	s_flags	*ft_param_to_tab(char **str)
 
 	i = 0;
 	struct_flag = (t_flags *)malloc(sizeof(t_flags) * (sizeof(int) * 6));
-	if (struct_flag == 0)
-		return (NULL);
 	while (str[i] != 0)
 	{
 		if (ft_is_flag('+', str[i]))

@@ -6,7 +6,7 @@
 /*   By: ansoulim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 03:01:11 by ansoulim          #+#    #+#             */
-/*   Updated: 2022/11/16 07:57:33 by ansoulim         ###   ########.fr       */
+/*   Updated: 2022/11/16 22:20:57 by ansoulim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,8 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 		return (0);
 	number = ft_atoi_base(nbr, base_from);
 	result = malloc(sizeof(char) * get_nbr_length(number, base_to));
+	if (result == 0)
+		return (NULL);
 	last_index = display(number, base_to,
 			result, get_nbr_length(number, base_to) - 1);
 	result[last_index + 1] = '\0';
