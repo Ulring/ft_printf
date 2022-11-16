@@ -6,7 +6,7 @@
 #    By: ansoulim <ansoulim@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 06:27:46 by ansoulim          #+#    #+#              #
-#    Updated: 2022/11/15 02:57:07 by ansoulim         ###   ########.fr        #
+#    Updated: 2022/11/16 11:55:31 by ansoulim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,6 +55,15 @@ SRC_FILES   = 	ft_atoi.c			\
 				ft_split.c			\
 				ft_strlcat.c		\
 				ft_strlen.c			\
+				ft_check_char.c		\
+				ft_check_integer.c	\
+				ft_check_modulo.c	\
+				ft_check_string.c	\
+				ft_check_upper_hex.c\
+				ft_check_decimal.c	\
+				ft_check_lower_hex.c\
+				ft_check_pointer.c	\
+				ft_check_unsigned.c	\
 				ft_printf.c
 
 TEST_FILES	=	tests.c
@@ -82,6 +91,6 @@ re              : fclean all
 
 .PHONY          : all, clean, fclean, re
 
-test			: re
+test			: all
 				gcc -L. -lftprintf main.c -o test -Wall -Wextra -Werror
 #				./test

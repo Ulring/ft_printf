@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_check_modulo.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ansoulim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/16 04:50:09 by ansoulim          #+#    #+#             */
-/*   Updated: 2022/11/16 04:50:16 by ansoulim         ###   ########.fr       */
+/*   Created: 2022/11/16 08:29:45 by ansoulim          #+#    #+#             */
+/*   Updated: 2022/11/16 08:33:07 by ansoulim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-void	ft_putchar(char c)
+void	ft_check_modulo(char **str)
 {
-	write(1, &c, 1);
+	if (*(*str + 1) == '%')
+	{
+		ft_putchar(*(*str + 1));
+		(*str) += 2;
+	}
 }

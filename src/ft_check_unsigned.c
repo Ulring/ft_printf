@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_check_unsigned.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ansoulim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/16 04:50:09 by ansoulim          #+#    #+#             */
-/*   Updated: 2022/11/16 04:50:16 by ansoulim         ###   ########.fr       */
+/*   Created: 2022/11/16 08:11:12 by ansoulim          #+#    #+#             */
+/*   Updated: 2022/11/16 08:12:20 by ansoulim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-void	ft_putchar(char c)
+void	ft_check_unsigned(char **str, va_list args)
 {
-	write(1, &c, 1);
+	if (*(*str + 1) == 'u')
+	{
+		unsigned int num;
+		num = va_arg(args, unsigned int);
+		ft_unsigned_putnbr(num);
+		(*str) += 2;
+	}
 }
+

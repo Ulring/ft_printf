@@ -6,7 +6,7 @@
 /*   By: ansoulim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 19:12:00 by ansoulim          #+#    #+#             */
-/*   Updated: 2022/11/15 01:41:29 by ansoulim         ###   ########.fr       */
+/*   Updated: 2022/11/16 08:32:59 by ansoulim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,14 @@ char    **ft_split(char *str);
 int     detect_nbr(char *str);
 int     ft_is_flag(char to_find, char *str);
 struct  s_flags *ft_param_to_tab(char** str);
+void	ft_check_upper_hex(char **str, va_list args);
+void	ft_check_lower_hex(char **str, va_list args);
+void	ft_check_unsigned(char **str, va_list args);
+void	ft_check_integer(char **str, va_list args);
+void	ft_check_pointer(char **str, va_list args);
+void	ft_check_string(char **str, va_list args);
+void	ft_check_char(char **str, va_list args);
+void	ft_check_decimal(char **str, va_list args);
+void	ft_check_modulo(char **str);
 
 #endif
