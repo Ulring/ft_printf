@@ -12,15 +12,8 @@
 
 #include "../include/ft_printf.h"
 
-void	ft_check_char(char **str, va_list args)
+int	ft_print_char(va_list args)
 {
-	int j;
-
-	j = 0;
-	if (*(*str + 1) == 'c')
-	{
-		j = va_arg(args, int);
-		ft_putchar(j);
-		(*str) += 2;
-	}
+	ft_putchar(va_arg(args, int));
+	return (1);	
 }

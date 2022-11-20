@@ -12,13 +12,15 @@
 
 #include "../include/ft_printf.h"
 
-void	ft_check_string(char **str, va_list args)
+int	ft_print_string(va_list args)
 {
-	char *string;
-	if (*(*str+1) == 's')
+	char	*string;
+	string = va_arg(args, char*);
+	if(!string)
 	{
-		string = va_arg(args, char*);
-		ft_putstr(string);
-		(*str) += 2;
+		ft_putstr("(null)");
+		return(6);
 	}
+	ft_putstr(string);
+	return(ft_strlen(string));
 }

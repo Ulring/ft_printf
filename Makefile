@@ -55,10 +55,10 @@ SRC_FILES   = 	ft_atoi.c			\
 				ft_split.c			\
 				ft_strlcat.c		\
 				ft_strlen.c			\
-				ft_check_char.c		\
+				ft_print_char.c		\
+				ft_print_string.c	\
 				ft_check_integer.c	\
 				ft_check_modulo.c	\
-				ft_check_string.c	\
 				ft_check_upper_hex.c\
 				ft_check_decimal.c	\
 				ft_check_lower_hex.c\
