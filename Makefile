@@ -6,7 +6,7 @@
 #    By: ansoulim <ansoulim@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 06:27:46 by ansoulim          #+#    #+#              #
-#    Updated: 2022/11/16 11:55:31 by ansoulim         ###   ########.fr        #
+#    Updated: 2022/11/21 00:17:44 by ansoulim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,8 @@ RM 			= rm -rf
 
 CC 			= gcc
 
-CFLAGS		= -Wall -Wextra -Werror -I$(INC_DIR)
+#CFLAGS		= -Wall -Wextra -Werror -I$(INC_DIR)
+CFLAGS		= -I$(INC_DIR)
 
 HEADERS     = $(addprefix $(INC_DIR)/,$(INC_FILES))
 SRCS        = $(addprefix $(SRC_DIR)/,$(SRC_FILES))
@@ -57,12 +58,12 @@ SRC_FILES   = 	ft_atoi.c			\
 				ft_strlen.c			\
 				ft_print_char.c		\
 				ft_print_string.c	\
-				ft_check_integer.c	\
+				ft_print_pointer.c	\
+				ft_print_decimal.c	\
+				ft_print_integer.c	\
 				ft_check_modulo.c	\
 				ft_check_upper_hex.c\
-				ft_check_decimal.c	\
 				ft_check_lower_hex.c\
-				ft_check_pointer.c	\
 				ft_check_unsigned.c	\
 				ft_printf.c
 
@@ -91,5 +92,6 @@ re              : fclean all
 .PHONY          : all, clean, fclean, re
 
 test			: all
-				gcc main.c bin/libftprintf.a -o test -Wall -Wextra -Werror -L.
+#				gcc main.c bin/libftprintf.a -o test -Wall -Wextra -Werror -L.
+				gcc main.c bin/libftprintf.a -o test -L.
 #				./test
