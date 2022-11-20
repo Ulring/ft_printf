@@ -79,7 +79,6 @@ $(OBJ_DIR)/%.o	: $(SRC_DIR)/%.c $(HEADER)
 
 $(NAME)			: ${OBJS}
 	ar rcs $(TARGET) $(OBJS)
-	cp bin/libftprintf.a .
 
 clean           :
 				$(RM) $(OBJS)
@@ -92,5 +91,5 @@ re              : fclean all
 .PHONY          : all, clean, fclean, re
 
 test			: all
-				gcc -L. -lftprintf main.c -o test -Wall -Wextra -Werror
+				gcc main.c bin/libftprintf.a -o test -Wall -Wextra -Werror -L.
 #				./test

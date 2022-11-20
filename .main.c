@@ -1,10 +1,11 @@
 #include "include/ft_printf.h"
 #include <stdio.h>
-# include <assert.h>
+#include <assert.h>
 #include <string.h>
 
 int main(void)
 {
+	/*
     int i,age,i_a,i_b,i_c;
     unsigned int unsigned_a;
     int hex_a;
@@ -23,7 +24,6 @@ int main(void)
     word = "old";
     ptr = &age;
 
-	/*
 	ft_putstr("==>Printing a string:\n");
     printf(	  "printf:		test.\n");
     ft_printf("ft_prinft:	test.\n");

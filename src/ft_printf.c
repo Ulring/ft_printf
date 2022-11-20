@@ -109,13 +109,9 @@ int	test_ft_printf(char *str, ...)
 
 int	ft_printf(const char *str, ...)
 {
-	int		i;
-	int		j;
 	char	*string;
 	va_list	args;
 
-	i = 0;
-	j = 0;
 	va_start(args, str);
 	string = ft_strdup(str);
 	while (*string != '\0')
@@ -138,7 +134,6 @@ int	ft_printf(const char *str, ...)
 			ft_check_upper_hex(&string, args);
 		}
 	}
-	free(string);
 	va_end(args);
 	return (1);
 }
