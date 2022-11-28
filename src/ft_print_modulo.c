@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_unsigned_putnbr.c                               :+:      :+:    :+:   */
+/*   ft_check_modulo.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ansoulim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/16 04:43:33 by ansoulim          #+#    #+#             */
-/*   Updated: 2022/11/16 04:43:46 by ansoulim         ###   ########.fr       */
+/*   Created: 2022/11/16 08:29:45 by ansoulim          #+#    #+#             */
+/*   Updated: 2022/11/28 08:57:24 by ansoulim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-void	ft_unsigned_putnbr(unsigned int n)
+int	ft_print_modulo(void)
 {
-	if (n >= 10)
-	{
-		ft_putnbr(n / 10);
-		ft_putchar(n % 10 + '0');
-	}
-	else
-		ft_putchar(n + '0');
+	ft_putchar('%');
+	return (1);
 }

@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_upper_hex.c                               :+:      :+:    :+:   */
+/*   ft_hex_length.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ansoulim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/16 08:03:45 by ansoulim          #+#    #+#             */
-/*   Updated: 2022/11/16 22:28:03 by ansoulim         ###   ########.fr       */
+/*   Created: 2022/11/28 05:22:38 by ansoulim          #+#    #+#             */
+/*   Updated: 2022/11/28 09:01:31 by ansoulim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-void	ft_check_upper_hex(char **str, va_list args)
+size_t	ft_hex_length(size_t nbr)
 {
-	if (*(*str + 1) == 'X')
+	size_t	length;
+
+	if (!nbr)
+		return (1);
+	length = 0;
+	while (nbr)
 	{
-		long num;
-		num = va_arg(args, long);
-		ft_putstr(ft_convert_base(ft_itoa(num), "0123456789", 
-			"0123456789ABCDEF"));
-		(*str) += 2;
+		nbr /= 16;
+		length++;
 	}
+	return (length);
 }

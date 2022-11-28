@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_print_upper_hex.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ansoulim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/05 23:38:06 by ansoulim          #+#    #+#             */
-/*   Updated: 2022/11/15 01:41:12 by ansoulim         ###   ########.fr       */
+/*   Created: 2022/11/28 05:43:23 by ansoulim          #+#    #+#             */
+/*   Updated: 2022/11/28 08:45:54 by ansoulim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-char	*ft_strdup(const char *s1)
+int	ft_print_upper_hex(va_list args)
 {
-	char	*str;
-	size_t	i;
+	size_t	nbr;
 
-	str = (char *)malloc(sizeof(*s1) * (ft_strlen(s1) + 1));
-	if (!str)
-		return (NULL);
-	i = 0;
-	while (s1[i])
-	{
-		str[i] = s1[i];
-		i++;
-	}
-	str[i] = 0;
-	return (str);
+	nbr = va_arg(args, unsigned int);
+	ft_calculate_upper_hex(nbr);
+	return (ft_hex_length(nbr));
 }

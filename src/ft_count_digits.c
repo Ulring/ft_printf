@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_flags.h                                         :+:      :+:    :+:   */
+/*   ft_count_digits.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ansoulim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/05 19:11:49 by ansoulim          #+#    #+#             */
-/*   Updated: 2022/11/05 19:17:29 by ansoulim         ###   ########.fr       */
+/*   Created: 2022/11/28 04:19:05 by ansoulim          #+#    #+#             */
+/*   Updated: 2022/11/28 09:01:55 by ansoulim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_FLAGS_H
-# define FT_FLAGS_H
+#include "../include/ft_printf.h"
 
-typedef struct	s_flags
+int	ft_count_digits(int nbr)
 {
-   int plus;
-   int minus;
-   int zero;
-   int space;
-   int number;
-   char format;
-}        t_flags;
+	int	nbr_chars_written;
 
-#endif
+	if (nbr == 0)
+		return (1);
+	if (nbr >= 0)
+		nbr_chars_written = 0;
+	else
+		nbr_chars_written = 1;
+	while (nbr != 0)
+	{
+		nbr = nbr / 10;
+		nbr_chars_written++;
+	}
+	return (nbr_chars_written);
+}

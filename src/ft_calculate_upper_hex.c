@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_calculate_upper_hex.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ansoulim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/05 23:35:04 by ansoulim          #+#    #+#             */
-/*   Updated: 2022/11/09 03:18:30 by ansoulim         ###   ########.fr       */
+/*   Created: 2022/11/28 05:44:19 by ansoulim          #+#    #+#             */
+/*   Updated: 2022/11/28 09:02:42 by ansoulim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-int	ft_atoi(const char *str)
-{
-	unsigned long long	res;
-	int					neg;
-
-	neg = 1;
-	res = 0;
-	while ((*str >= 9 && *str <= 13) || *str == 32)
-		str++;
-	if (*str == '+' || *str == '-')
-		if (*str++ == '-')
-			neg *= -1;
-	while (*str >= '0' && *str <= '9')
+void	ft_calculate_upper_hex(unsigned int nbr)
+{	
+	if (nbr > 15)
 	{
-		res = (res * 10) + (*str - '0');
-		if (res > 9223372036854775807 && neg > 0)
-			return (-1);
-		if (res > 9223372036854775807 && neg < 0)
-			return (0);
-		str++;
+		ft_calculate_upper_hex(nbr / 16);
+		ft_calculate_upper_hex(nbr % 16);
 	}
-	return ((int)res * neg);
+	else
+	{
+		if (nbr < 10)
+			ft_putchar(nbr + 48);
+		else
+			ft_putchar(nbr - 10 + 'A');
+	}
 }

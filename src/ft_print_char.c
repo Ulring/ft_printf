@@ -6,7 +6,7 @@
 /*   By: ansoulim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 08:26:18 by ansoulim          #+#    #+#             */
-/*   Updated: 2022/11/16 08:27:07 by ansoulim         ###   ########.fr       */
+/*   Updated: 2022/11/28 09:00:50 by ansoulim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 int	ft_print_char(va_list args)
 {
 	ft_putchar(va_arg(args, int));
-	return (1);	
+	return (1);
 }

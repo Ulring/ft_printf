@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_check_lower_hex.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ansoulim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/05 23:40:45 by ansoulim          #+#    #+#             */
-/*   Updated: 2022/11/09 03:25:52 by ansoulim         ###   ########.fr       */
+/*   Created: 2022/11/16 08:06:58 by ansoulim          #+#    #+#             */
+/*   Updated: 2022/11/28 08:57:50 by ansoulim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+int	ft_print_lower_hex(va_list args)
 {
-	size_t	i;
+	size_t	nbr;
 
-	if (dstsize == 0)
-		return (ft_strlen(src));
-	i = 0;
-	while (dstsize - 1 > i && src[i] != '\0')
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (ft_strlen(src));
+	nbr = va_arg(args, unsigned int);
+	ft_calculate_lower_hex(nbr);
+	return (ft_hex_length(nbr));
 }

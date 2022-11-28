@@ -6,7 +6,7 @@
 #    By: ansoulim <ansoulim@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 06:27:46 by ansoulim          #+#    #+#              #
-#    Updated: 2022/11/21 00:17:44 by ansoulim         ###   ########.fr        #
+#    Updated: 2022/11/28 09:24:24 by ansoulim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,29 +42,24 @@ OBJ_NAME	= $(SRC_FILES:.c=.o)
 
 INC_FILES	= ft.h ft_flags.h
 
-SRC_FILES   = 	ft_atoi.c			\
-				ft_itoa.c			\
-				ft_putchar.c		\
-				ft_putstr.c			\
-				ft_strdup.c			\
-				ft_strjoin.c		\
-				ft_strlcpy.c		\
-				ft_unsigned_putnbr.c\
-				ft_convert_base.c	\
-				ft_param_to_tab.c	\
-				ft_putnbr.c			\
-				ft_split.c			\
-				ft_strlcat.c		\
-				ft_strlen.c			\
-				ft_print_char.c		\
-				ft_print_string.c	\
-				ft_print_pointer.c	\
-				ft_print_decimal.c	\
-				ft_print_integer.c	\
-				ft_check_modulo.c	\
-				ft_check_upper_hex.c\
-				ft_check_lower_hex.c\
-				ft_check_unsigned.c	\
+SRC_FILES   =	ft_strlen.c				\
+				ft_putchar.c			\
+				ft_putstr.c				\
+				ft_putnbr.c				\
+				ft_print_char.c			\
+				ft_print_string.c		\
+				ft_print_pointer.c		\
+				ft_print_decimal.c		\
+				ft_print_integer.c		\
+				ft_print_unsigned.c		\
+				ft_print_lower_hex.c	\
+				ft_print_upper_hex.c	\
+				ft_print_modulo.c		\
+				ft_count_digits.c		\
+				ft_hex_length.c			\
+				ft_calculate_pointer.c	\
+				ft_calculate_lower_hex.c\
+				ft_calculate_upper_hex.c\
 				ft_printf.c
 
 TEST_FILES	=	tests.c
