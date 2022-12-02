@@ -6,7 +6,7 @@
 #    By: ansoulim <ansoulim@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 06:27:46 by ansoulim          #+#    #+#              #
-#    Updated: 2022/12/02 02:23:59 by ansoulim         ###   ########.fr        #
+#    Updated: 2022/12/02 03:47:58 by ansoulim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,7 +72,7 @@ all	: DIRS ${NAME}
 $(OBJ_DIR)/%.o	: $(SRC_DIR)/%.c $(HEADER)	
 	$(CC) $(CFLAGS) $(DEBUG_CFLAGS) -c $< -o $@
 
-$(NAME)			: ${OBJS}
+$(NAME)			: $(OBJS)
 	ar rcs $(TARGET) $(OBJS)
 
 clean           :
