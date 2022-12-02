@@ -6,7 +6,7 @@
 #    By: ansoulim <ansoulim@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 06:27:46 by ansoulim          #+#    #+#              #
-#    Updated: 2022/11/28 09:24:24 by ansoulim         ###   ########.fr        #
+#    Updated: 2022/12/02 02:23:59 by ansoulim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,6 @@ BIN_DIR 	= bin
 
 TEST_DIR	= test
 
-#DEBUG_CFLAGS= -O3
 DEBUG_CFLAGS=
 
 RM 			= rm -rf
@@ -40,7 +39,7 @@ TARGET 		= $(addprefix $(BIN_DIR)/,$(NAME))
 
 OBJ_NAME	= $(SRC_FILES:.c=.o)
 
-INC_FILES	= ft.h ft_flags.h
+INC_FILES	= ft_printf.h
 
 SRC_FILES   =	ft_strlen.c				\
 				ft_putchar.c			\
@@ -62,7 +61,7 @@ SRC_FILES   =	ft_strlen.c				\
 				ft_calculate_upper_hex.c\
 				ft_printf.c
 
-TEST_FILES	=	tests.c
+TEST_FILES	=	main.c
 
 DIRS: 
 	if test ! -d $(OBJ_DIR); then mkdir $(OBJ_DIR); fi
@@ -87,6 +86,5 @@ re              : fclean all
 .PHONY          : all, clean, fclean, re
 
 test			: all
-#				gcc main.c bin/libftprintf.a -o test -Wall -Wextra -Werror -L.
-				gcc main.c bin/libftprintf.a -o test -L.
-#				./test
+				gcc $(TEST_FILES) bin/libftprintf.a -o test -L.
+				./test
