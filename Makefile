@@ -3,88 +3,71 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ansoulim <ansoulim@student.1337.ma>        +#+  +:+       +#+         #
+#    By: ansoulim <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/10/12 06:27:46 by ansoulim          #+#    #+#              #
-#    Updated: 2022/12/02 03:47:58 by ansoulim         ###   ########.fr        #
+#    Created: 2022/12/02 04:03:05 by ansoulim          #+#    #+#              #
+#    Updated: 2022/12/02 04:03:11 by ansoulim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME        = libftprintf.a
+NAME        	= libftprintf.a
 
-SRC_DIR     = src
+CC          	= gcc
 
-OBJ_DIR     = obj
+CFLAGS      	= -Wall -Wextra -Werror -I$(INC_DIR)
 
-INC_DIR     = include
+RM          	= rm -rf
 
-BIN_DIR 	= bin
+SRC_DIR     	= src
 
-TEST_DIR	= test
+OBJ_DIR     	= obj
 
-DEBUG_CFLAGS=
+INC_DIR     	= include
 
-RM 			= rm -rf
+HEADERS			= $(addprefix $(INC_DIR)/,$(INC_FILES))
 
-CC 			= gcc
+SRCS        	= $(addprefix $(SRC_DIR)/,$(SRC_FILES))
 
-#CFLAGS		= -Wall -Wextra -Werror -I$(INC_DIR)
-CFLAGS		= -I$(INC_DIR)
+OBJS        	= $(addprefix $(OBJ_DIR)/,$(OBJ_NAME))
 
-HEADERS     = $(addprefix $(INC_DIR)/,$(INC_FILES))
-SRCS        = $(addprefix $(SRC_DIR)/,$(SRC_FILES))
-OBJS        = $(addprefix $(OBJ_DIR)/,$(OBJ_NAME))
-TESTS 		= $(addprefix $(TEST_DIR)/,$(TEST_FILES))
-TARGET 		= $(addprefix $(BIN_DIR)/,$(NAME))
+SRC_FILES   	=	ft_strlen.c				\
+					ft_putchar.c			\
+					ft_putstr.c				\
+					ft_putnbr.c				\
+					ft_print_char.c			\
+					ft_print_string.c		\
+					ft_print_pointer.c		\
+					ft_print_decimal.c		\
+					ft_print_integer.c		\
+					ft_print_unsigned.c		\
+					ft_print_lower_hex.c	\
+					ft_print_upper_hex.c	\
+					ft_print_modulo.c		\
+					ft_count_digits.c		\
+					ft_hex_length.c			\
+					ft_calculate_pointer.c	\
+					ft_calculate_lower_hex.c\
+					ft_calculate_upper_hex.c\
+					ft_printf.c
 
-OBJ_NAME	= $(SRC_FILES:.c=.o)
+INC_FILES		= ft_printf.h
 
-INC_FILES	= ft_printf.h
+OBJ_NAME        = $(SRC_FILES:.c=.o)
 
-SRC_FILES   =	ft_strlen.c				\
-				ft_putchar.c			\
-				ft_putstr.c				\
-				ft_putnbr.c				\
-				ft_print_char.c			\
-				ft_print_string.c		\
-				ft_print_pointer.c		\
-				ft_print_decimal.c		\
-				ft_print_integer.c		\
-				ft_print_unsigned.c		\
-				ft_print_lower_hex.c	\
-				ft_print_upper_hex.c	\
-				ft_print_modulo.c		\
-				ft_count_digits.c		\
-				ft_hex_length.c			\
-				ft_calculate_pointer.c	\
-				ft_calculate_lower_hex.c\
-				ft_calculate_upper_hex.c\
-				ft_printf.c
+$(OBJ_DIR)/%.o  : $(SRC_DIR)/%.c $(HEADER)
+				$(CC) $(CFLAGS) -c $< -o $@
 
-TEST_FILES	=	main.c
+$(NAME)         : ${OBJS}
+				ar rcs ${NAME} ${OBJS}
 
-DIRS: 
-	if test ! -d $(OBJ_DIR); then mkdir $(OBJ_DIR); fi
-	if test ! -d $(BIN_DIR); then mkdir $(BIN_DIR); fi
-
-all	: DIRS ${NAME}
-
-$(OBJ_DIR)/%.o	: $(SRC_DIR)/%.c $(HEADER)	
-	$(CC) $(CFLAGS) $(DEBUG_CFLAGS) -c $< -o $@
-
-$(NAME)			: $(OBJS)
-	ar rcs $(TARGET) $(OBJS)
+all             : ${NAME}
 
 clean           :
-				$(RM) $(OBJS)
+				${RM} ${OBJS}
 
 fclean          : clean
-				$(RM) $(TARGET)
+				${RM} ${NAME}
 
 re              : fclean all
 
 .PHONY          : all, clean, fclean, re
-
-test			: all
-				gcc $(TEST_FILES) bin/libftprintf.a -o test -L.
-				./test
